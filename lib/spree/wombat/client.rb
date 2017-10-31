@@ -1,6 +1,7 @@
 require 'json'
 require 'openssl'
 require 'httparty'
+require 'active_model_serializers'
 
 module Spree
   module Wombat

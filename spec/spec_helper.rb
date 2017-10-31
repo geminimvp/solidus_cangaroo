@@ -35,7 +35,6 @@ Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f}
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/preferences'
-require 'active_model_serializers'
 
 RSpec.configure do |config|
   config.backtrace_exclusion_patterns = [/gems\/activesupport/, /gems\/actionpack/, /gems\/rspec/]
@@ -74,12 +73,5 @@ end
 class Spree::Wombat::Handler::MyCustomHandler < Spree::Wombat::Handler::Base
   def process
     response "Order added!"
-  end
-end
-
-class CustomSerializer < ActiveModel::Serializer
-  attributes :name
-  def name
-    "#{object.id} : #{object.name}"
   end
 end
